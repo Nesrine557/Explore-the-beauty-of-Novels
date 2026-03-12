@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Novel World | Exploring the Beauty of Literature</title>
+    <meta name="description" content="A comprehensive guide to different kinds of novels, their beauty, and the impact of literature on our lives.">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary-color: #8B4513; /* Saddle Brown */
+            --secondary-color: #F5DEB3; /* Wheat */
+            --accent-color: #B22222; /* Firebrick */
+            --text-color: #2c1810;
+            --bg-color: #FFF8DC; /* Cornsilk */
+            --overlay-bg: rgba(44, 24, 16, 0.85);
+            --card-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            --border-color: #D2B48C;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Georgia', 'Times New Roman', serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.9;
+            scroll-behavior: smooth;
+        }
+
+        /* --- HEADER & NAV --- */
+        header {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #5D4037 100%);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            padding: 1.5rem 5%;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--secondary-color);
+            font-weight: 600;
+            transition: color 0.3s;
+            font-size: 1.1rem;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(rgba(139, 69, 19, 0.8), rgba(93, 64, 55, 0.8)), 
+                        url('https://images.unsplash.com/photo-1507842217121-9e9f1479fb48?w=1200') center/cover;
+            padding: 6rem 5%;
+            text-align: center;
+            min-height: 70vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: var(--secondary-color);
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-family: 'Georgia', serif;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin-bottom: 3rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+
+        .btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            padding: 18px 50px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s;
+            display: inline-block;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+            border: 2px solid var(--secondary-color);
+        }
+
+        .btn:hover {
+            background-color: transparent;
+            color: var(--secondary-color);
+            transform: translateY(-3px);
+        }
+
+        /* --- DISCLAIMER --- */
+        .disclaimer {
+            background-color: #FFD700;
+            color: #8B4513;
+            padding: 1rem;
+            text-align: center;
+            font-size: 0.95rem;
+            border-bottom: 2px solid var(--primary-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* --- CONTENT SECTIONS --- */
+        .container {
+            padding: 5rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            color: var(--primary-color);
+            margin-bottom: 4rem;
+            position: relative;
+            font-family: 'Georgia', serif;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 5px;
+            background-color: var(--accent-color);
+            margin: 15px auto 0;
+            border-radius: 3px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .card {
+            background: var(--bg-color);
+            padding: 3rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            text-align: left;
+            transition: transform 0.3s;
+            border: 2px solid var(--border-color);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .card h3 {
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+            font-size: 1.8rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .card p {
+            margin-bottom: 1.5rem;
+            color: #5D4037;
+            font-size: 1.05rem;
+        }
+
+        .card a {
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: bold;
+            border-bottom: 2px solid transparent;
+            transition: border 0.3s;
+        }
+
+        .card a:hover {
+            border-bottom: 2px solid var(--accent-color);
+        }
+
+        /* --- IMAGE PLACEHOLDERS --- */
+        .book-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--secondary-color);
+            font-size: 3rem;
+        }
+
+        /* --- BEAUTY SECTION --- */
+        .beauty-section {
+            background: linear-gradient(135deg, var(--secondary-color) 0%, var(--bg-color) 100%);
+            padding: 5rem 5%;
+        }
+
+        .beauty-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .beauty-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 2rem;
+            font-family: 'Georgia', serif;
+        }
+
+        .beauty-text ul {
+            list-style-position: inside;
+            margin-top: 1.5rem;
+        }
+
+        .beauty-text li {
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        /* --- GENRES SECTION --- */
+        .genres-section {
+            background-color: var(--bg-color);
+            padding: 5rem 5%;
+        }
+
+        .genre-card {
+            background: var(--bg-color);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: var(--card-shadow);
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s;
+        }
+
+        .genre-card:hover {
+            transform: scale(1.02);
+            border-color: var(--primary-color);
+        }
+
+        .genre-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #3E2723 100%);
+            color: var(--secondary-color);
+            padding: 5rem 5%;
+            text-align: center;
+        }
+
+        .footer-links {
+            margin-top: 2rem;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .footer-links a {
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FFD700;
+        }
+
+        /* --- COOKIE BANNER --- */
+        #cookie-banner {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(135deg, var(--primary-color), #5D4037);
+            padding: 2rem;
+            box-shadow: 0 -4px 20px rgba(0,0,0,0.3);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            border-top: 4px solid var(--accent-color);
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        #cookie-banner.show {
+            transform: translateY(0);
+        }
+
+        .cookie-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 30px;
+        }
+
+        .cookie-text {
+            font-size: 1rem;
+            margin-right: 30px;
+            color: var(--secondary-color);
+        }
+
+        .cookie-btn {
+            background-color: var(--secondary-color);
+            color: var(--primary-color);
+            border: none;
+            padding: 12px 35px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        .cookie-btn:hover {
+            background-color: #FFD700;
+            transform: scale(1.05);
+        }
+
+        /* --- MODAL --- */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: var(--overlay-bg); 
+            backdrop-filter: blur(8px);
+        }
+
+        .modal-content {
+            background-color: var(--bg-color);
+            margin: 3% auto; 
+            padding: 3rem;
+            border: 3px solid var(--primary-color);
+            width: 85%; 
+            max-width: 1000px;
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.4);
+        }
+
+        .close {
+            color: var(--primary-color);
+            float: right;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            line-height: 1;
+            transition: color 0.3s;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: var(--accent-color);
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .policy-text h2 { 
+            margin-top: 0; 
+            margin-bottom: 1.5rem; 
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-family: 'Georgia', serif;
+        }
+        
+        .policy-text h3 { 
+            margin-top: 2rem; 
+            margin-bottom: 1rem; 
+            color: var(--accent-color);
+            font-size: 1.5rem;
+        }
+        
+        .policy-text p { 
+            margin-bottom: 1.2rem; 
+            text-align: justify;
+            font-size: 1.05rem;
+        }
+        
+        .policy-text ul { 
+            margin-left: 30px; 
+            margin-bottom: 1.5rem; 
+        }
+
+        /* --- QUOTE SECTION --- */
+        .quote-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            padding: 4rem 5%;
+            text-align: center;
+            color: var(--secondary-color);
+        }
+
+        .quote {
+            font-size: 2rem;
+            font-style: italic;
+            max-width: 900px;
+            margin: 0 auto;
+            line-height: 1.6;
